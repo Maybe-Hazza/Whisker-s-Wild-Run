@@ -9,19 +9,23 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float runSpeed = 10f;
     [SerializeField] float jumpVerticalSpeed = 5f;
     [SerializeField] float jumpHorizontalSpeed = -5f;
-    [SerializeField] float climbingLadderSpeed = 5f;
+    [SerializeField] float climbSpeed = 5f;
 
 
     Vector2 moveInput;
     Rigidbody2D myRigidbody;
     Animator myAnimator;
     BoxCollider2D myBoxCollider;
+    float gravityScaleAtStart;
+
 
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
         myBoxCollider = GetComponent<BoxCollider2D>();
+        gravityScaleAtStart = myRigidbody.gravityScale;
+
     }
 
     void Update()
@@ -38,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
 
     void OnJump(InputValue value) 
     {
-        if (!myBoxCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) { return; }
+        if (!myBoxCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) {return;}
 
         if (value.isPressed) 
         {
@@ -69,10 +73,21 @@ public class PlayerMovement : MonoBehaviour
     void ClimbLadder()
     {
         if (!myBoxCollider.IsTouchingLayers(LayerMask.GetMask("Ladders")))
-        { return; }
+        {
+            myAnimator.SetBool("isClimbing", false);
+            myRigidbody.gravityScale = gravityScaleAtStart;
+            return;
+        }
 
-        Vector2 climbVelocity = new Vector2(myRigidbody.velocity.x, moveInput.y * climbingLadderSpeed);
+        Vector2 climbVelocity = new Vector2 (myRigidbody.velocity.x, moveInput.y * climbSpeed);
         myRigidbody.velocity = climbVelocity;
+        myRigidbody.gravityScale = 0f;
+        myAnimator.SetBool("isClimbing", true);
+
+        if (myBoxCollider.IsTouchingLayers(LayerMask.GetMask("Ladders")) && myBoxCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) 
+        {
+            myAnimator.SetBool("isClimbing", false);
+        }
     }
 
 }

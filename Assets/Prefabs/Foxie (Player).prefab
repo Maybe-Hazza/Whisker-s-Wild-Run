@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -3428328071874941215}
   - component: {fileID: 2052336810566589729}
   - component: {fileID: 4787091631045566159}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Foxie (Player)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,3 +202,4 @@ MonoBehaviour:
   runSpeed: 10
   jumpVerticalSpeed: 15
   jumpHorizontalSpeed: -5
+  climbSpeed: 5
