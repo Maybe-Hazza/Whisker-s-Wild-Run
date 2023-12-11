@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -3428328071874941215}
   - component: {fileID: 2052336810566589729}
   - component: {fileID: 4787091631045566159}
+  - component: {fileID: 170690759394214805}
   m_Layer: 8
   m_Name: Foxie (Player)
   m_TagString: Untagged
@@ -144,7 +145,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.07902813, y: -0.2867602}
+  m_Offset: {x: -0.09471798, y: -0.93396056}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -155,7 +156,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.1367445, y: 1.3993909}
+  m_Size: {x: 0.7601929, y: 0.1363697}
   m_EdgeRadius: 0
 --- !u!114 &2052336810566589729
 MonoBehaviour:
@@ -203,3 +204,19 @@ MonoBehaviour:
   jumpVerticalSpeed: 15
   jumpHorizontalSpeed: -5
   climbSpeed: 5
+--- !u!70 &170690759394214805
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312381897453153471}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 57ecf3a7219141744989eb31b4dc8910, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.09035921, y: -0.24926531}
+  m_Size: {x: 1.1215239, y: 1.3520939}
+  m_Direction: 0
